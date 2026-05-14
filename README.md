@@ -1,78 +1,87 @@
-Face Recognition-Based Attendance System
+# 🎯 Face Recognition Based Attendance System
 
-A smart attendance management system that uses Face Recognition and Machine Learning 
-to mark attendance through a webcam automatically. Built using Python, Flask, OpenCV, Scikit-learn, and Pandas.
+A smart attendance system that uses **face recognition technology** to automatically detect and mark attendance in real-time. This eliminates manual effort and improves accuracy.
 
-Features:
-Face detection using OpenCV
-Face recognition using KNN Classifier
-Automatic attendance marking
-Stores attendance in CSV format.
-Add and manage users
-Real-time webcam detection
-Flask-based web interface
+---
 
-Technologies Used:
-Python
-Flask
-OpenCV
-NumPy
-Pandas
-Scikit-learn
-Joblib
+## 🚀 Features
 
-Project Structure
+* 📸 Real-time face detection using OpenCV
+* 🧠 Face recognition using machine learning
+* 🗂️ Automatic attendance marking
+* 📊 Attendance stored in structured format (Excel/CSV)
+* ⚡ Fast and efficient processing
 
-Face-Recognition-Attendance-System/
-│
-├── Attendance/
-├── static/
-│   ├── faces/
-│   └── face_recognition_model.pkl
-│
-├── templates/
-│   ├── home.html
-│   └── listusers.html
-│
-├── app.py
-├── haarcascade_frontalface_default.xml
-└── README.md
+---
 
-Installation:
-Clone Repository
+## 🛠️ Tech Stack
 
-git clone https://github.com/your-username/Face-Recognition-Attendance-System.git
-cd Face-Recognition-Attendance-System
+* **Python**
+* **OpenCV**
+* **NumPy**
+* **Pandas**
+* **Flask** (if used for UI)
 
-Install Required Libraries:
-pip install opencv-python flask numpy scikit-learn pandas joblib
+---
 
-Run the Project:
-In the terminal, run this command ---> flask run
+## 📂 Project Structure
 
-Open browser:
-http://127.0.0.1:5000
+```
+Face-Recognition-Based-Attendance-System/
+│── Attendance/           # Attendance records
+│── static/               # CSS, JS, assets
+│── templates/            # HTML files
+│── app.py                # Main application
+│── haarcascade_frontalface_default.xml
+│── README.md
+```
 
-How It Works:
-Add new users with face images
-System trains the model automatically
-Webcam captures live video
-Faces are recognised in real time
-Attendance is stored in a CSV file
+---
 
-Attendance Format:
-Name, Roll, Time
-John,101,09:30:25
+## ▶️ How to Run
 
-Future Improvements:
-Database integration
-Email notifications
-Deep learning face recognition
-Mobile support
-Cloud deployment
+### 1. Clone the repository
 
-License
-This project is licensed under the MIT License.
+```
+git clone https://github.com/ashtikaraditya604-dot/Face-Recognition-Based-Attendance-System.git
+cd Face-Recognition-Based-Attendance-System
+```
 
-Author
-Developed by Aaradhya Shingru
+### 2. Install dependencies
+
+```
+pip install opencv-python numpy pandas flask
+```
+
+### 3. Run the project
+
+```
+python app.py
+```
+
+---
+
+## 📸 Screenshots
+
+*(Add screenshots here later for better presentation)*
+
+---
+
+## 💡 Future Improvements
+
+* Add GUI interface
+* Improve recognition accuracy
+* Deploy as web application
+* Add database integration
+
+---
+
+## 👨‍💻 Author
+
+**Aditya Ashtikar**
+
+---
+
+## ⭐ If you like this project
+
+Give it a star ⭐ on GitHub!
