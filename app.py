@@ -168,19 +168,29 @@ def listusers():
 @app.route('/deleteuser', methods=['GET'])
 def deleteuser():
     duser = request.args.get('user')
-    deletefolder('static/faces/user')
 
-    ## if all the face are deleted, delete the trained file...
-    if os.listdir('static/faces/')==[]:
-        os.remove('static/face_recognition_model.pkl')
-    
+    deletefolder(os.path.join('static', 'faces', duser))
+
+    if os.listdir('static/faces/') == []:
+        if os.path.exists('static/face_recognition_model.pkl'):
+            os.remove('static/face_recognition_model.pkl')
+
     try:
         train_model()
     except:
         pass
 
     userlist, names, rolls, l = getallusers()
-    return render_template('listusers.html', userlist=userlist, names=names, rolls=rolls, l=l, totalreg=totalreg(), datetoday2=datetoday2)
+
+    return render_template(
+        'listusers.html',
+        userlist=userlist,
+        names=names,
+        rolls=rolls,
+        l=l,
+        totalreg=totalreg(),
+        datetoday2=datetoday2
+    )
 
 
 # Our main Face Recognition functionality. 
@@ -247,12 +257,12 @@ def add():
             cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 20), 2)
             cv2.putText(frame, f'Images Captured: {i}/{nimgs}', (30, 30),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 20), 2, cv2.LINE_AA)
-            if j % 5 == 0:
-                name = newusername+'_'+str(i)+'.jpg'
-                cv2.imwrite(userimagefolder+'/'+name, frame[y:y+h, x:x+w])
-                i += 1
-            j += 1
-        if j == nimgs*5:
+            if i < nimgs:
+             name = newusername + '_' + str(i) + '.jpg'
+            cv2.imwrite(userimagefolder + '/' + name, frame[y:y+h, x:x+w])
+            i += 1
+            cv2.waitKey(300)
+        if i>= nimgs:
             break
         cv2.imshow('Adding new User', frame)
         if cv2.waitKey(1) == 27:
